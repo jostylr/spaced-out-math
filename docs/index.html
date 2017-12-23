@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spaced Out Math Demo</title>
+    <link rel="stylesheet" href="katex.css">
+  </head>
+  <body>
+    <div id="app"> 
+      <h1>Spaced Out Math
+        <input v-model.lazy="spacedout">
+        <p>Tex Output <span class="katex">{{math.tex}}</span></p>
+      </h1>
+    </div>
+    <script src="vue.js"></script>
+    <script src="som.js"></script>
+    <script src="katex.js"></script>
+    <script>var m = new Vue({
+        el: '#app',
+        data: {
+            spacedout: ''
+        },
+        computed: {
+            math: function () {
+                var t =  parse(this.spacedout);
+                console.log(t);
+                return t;
+            }
+        }
+    }); </script>
+  </body>
+</html>
